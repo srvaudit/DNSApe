@@ -855,7 +855,7 @@ class ApeController extends Controller
             $ip = gethostbyname($request->host);
             $result = $whois->lookup($ip, false);
             if ($ip == $request->host) {
-                echo "<br/><b>$request->host</b> couldn't be resolved.<br/><br/>";
+                echo "<br/><b>" . htmlspecialchars($ip,ENT_QUOTES) . "</b> couldn't be resolved.<br/><br/>";
             } else {
                 echo "<pre>";
                 foreach($result['rawdata'] as $data) {
